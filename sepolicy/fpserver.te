@@ -1,0 +1,43 @@
+type fpserver, domain;
+type fpserver_exec, exec_type, file_type;
+typeattribute fpserver mlstrustedsubject;
+init_daemon_domain(fpserver)
+r_dir_file(fpserver, sdcard_type)
+binder_use(fpserver)
+binder_call(fpserver, binderservicedomain)
+binder_call(fpserver, appdomain)
+binder_service(fpserver)
+allow fpserver self:process execmem;
+allow fpserver kernel:system module_request;
+allow fpserver sdcard_type:file write;
+allow fpserver fuse:dir create_dir_perms;
+allow fpserver fuse:file create_file_perms;
+allow fpserver self:capability { dac_override dac_read_search };
+allow fpserver fpserver_service:service_manager add;
+r_dir_file(fpserver, sunwave_data_file)
+allow fpserver sunwave_data_file:dir ra_dir_perms;
+allow fpserver sunwave_data_file:file create_file_perms;
+allow fpserver sunwave_device:chr_file { open read write ioctl rw_file_perms};
+allow fpserver system_data_file:dir create_dir_perms;
+allow fpserver system_data_file:file create_file_perms;
+allow fpserver system_file:file {read open execute_no_trans execute};
+allow fpserver shell_exec:file { read open execute_no_trans execute };
+allow fpserver app_data_file:dir {read write open ioctl execute search getattr add_name create_dir_perms};
+allow fpserver app_data_file:file {read write open ioctl create_file_perms};
+allow fpserver apk_data_file:file {read write open ioctl create_file_perms};
+allow fpserver apk_data_file:dir {read write open ioctl execute search getattr add_name create_dir_perms};
+allow fpserver fpserver:netlink_socket {create bind connect listen accept write read setopt getopt getattr ioctl};
+allow fpserver fpserver:netlink_route_socket { create_socket_perms nlmsg_read nlmsg_write create ioctl bind };
+allow fpserver fpserver:udp_socket { create ioctl bind }; allow fpserver fpserver:tcp_socket { create ioctl bind };
+allow fpserver fpserver:packet_socket { create ioctl bind};
+allow fpserver fpserver:netlink_kobject_uevent_socket { create setopt bind write read ioctl};
+allow fpserver ueventd:dir search;  allow fpserver ueventd:file { create write read open };
+allow fpserver block_device:dir { search };
+#allow fpserver mmcblk_device:blk_file { open read write rw_file_perms};
+allow fpserver mmc_device:blk_file { open read write rw_file_perms};
+allow fpserver untrusted_app:process { signull };
+#allow fpserver system_data_file:file { write open create setattr };
+#allow fpserver system_data_file:dir { write open add_name create setattr };
+#allow fpserver system_app_data_file:dir { write open add_name create setattr search };
+#allow fpserver system_app_data_file:file { write open create setattr getattr };
+allow system_app fpserver_service:service_manager add;

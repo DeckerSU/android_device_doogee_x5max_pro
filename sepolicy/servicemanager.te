@@ -1,0 +1,3 @@
+allow servicemanager fpserver:dir { search };
+allow servicemanager fpserver:file { open read write };
+allow servicemanager fpserver:process { getattr };

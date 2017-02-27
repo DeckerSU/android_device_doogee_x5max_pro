@@ -15,3 +15,5 @@ allow system_server wmtWifi_device:chr_file w_file_perms;
 
 # MTKLogger
 allow system_server mtklogger_data_file:dir { search getattr };
+
+allow system_server sunwave_device:chr_file {open read write ioctl};

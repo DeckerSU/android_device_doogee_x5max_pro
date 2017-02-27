@@ -1,0 +1,1 @@
+allow untrusted_app sunwave_device:chr_file {open read write ioctl}; 
