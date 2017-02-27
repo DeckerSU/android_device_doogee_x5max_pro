@@ -1,0 +1,2 @@
+_ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBufferEb     
+android::MediaBufferGroup::acquire_buffer(android::MediaBuffer**, bool)                                                                          

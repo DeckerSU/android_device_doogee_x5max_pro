@@ -1,0 +1,33 @@
+From 4420d16a621ebfc2db0b424aff96b8f7c4101fb3 Mon Sep 17 00:00:00 2001
+From: DeckerSU <support@decker.su>
+Date: Mon, 27 Feb 2017 23:53:41 +0300
+Subject: [PATCH] fix
+ _ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBufferEb"
+ referenced by "/system/vendor/lib/libwvm.so"...
+
+Change-Id: Ic487524f58331967354d6a7aaaad02eee936c4c0
+---
+ media/libstagefright/foundation/MediaBufferGroup.cpp | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/media/libstagefright/foundation/MediaBufferGroup.cpp b/media/libstagefright/foundation/MediaBufferGroup.cpp
+index 54f768a..17a07f8 100644
+--- a/media/libstagefright/foundation/MediaBufferGroup.cpp
++++ b/media/libstagefright/foundation/MediaBufferGroup.cpp
+@@ -119,6 +119,13 @@ bool MediaBufferGroup::has_buffers() {
+     return false;
+ }
+ 
++// just another method fix
++extern "C" status_t _ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBufferEb(
++                    MediaBufferGroup* group, MediaBuffer **out, bool nonBlocking) {
++    ALOGD("[Decker] _ZN7android16MediaBufferGroup14acquire_bufferEPPNS_11MediaBufferEb");
++    return group->acquire_buffer(out, nonBlocking, 0);
++}
++
+ status_t MediaBufferGroup::acquire_buffer(
+         MediaBuffer **out, bool nonBlocking, size_t requestedSize) {
+     Mutex::Autolock autoLock(mLock);
+-- 
+2.7.4
+
