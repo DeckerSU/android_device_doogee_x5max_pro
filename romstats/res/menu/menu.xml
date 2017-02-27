@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/learn_more"
+        android:title="@string/anonymous_learn_more" />
+    <item
+        android:id="@+id/hideicon"
+        android:title="@string/pref_hideicon" />
+    <item
+        android:id="@+id/uninstall"
+        android:title="@string/pref_uninstall" />
+
+</menu>

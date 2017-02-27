@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2012 The CyanogenMod Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+    <string name="app_name">Statistics</string>
+
+    <!-- Main -->
+    <string name="main_title">Anonymous Usage Data</string>
+
+    <!-- Notification -->
+    <string name="notification_ticker">Statistics Opted-In</string>
+    <string name="notification_title">ROM Statistics</string>
+    <string name="notification_desc">Enable or Disable Anonymous Statistics</string>
+
+    <string name="main_link">&lt;a href=&quot;http://www.cyanogenmod.org/blog/cmstats-what-it-is-and-why-you-should-opt-in&quot;&gt;Learn More&lt;/a&gt;</string>
+
+    <!-- Anonymous Statistics #CM -->
+    <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
+    <string name="anonymous_statistics_title">ROM Statistics</string>
+    <string name="anonymous_statistics_summary">Help make this ROM better by opting into anonymous statistics reporting</string>
+    <string name="anonymous_statistics_warning_title">About</string>
+    <string name="anonymous_statistics_warning">Opting into ROM Statistics will allow non-personal data to be submitted to the
+        developers of the ROM to track unique installations across devices. The information submitted includes an unique identifier,
+        which does not compromise your privacy or personal data. The data is submitted on a regular interval decided by the ROM developer.\n\nFor an example of the data that is submitted, tap on Preview Data.</string>
+
+    <string name="pref_settings">Settings</string>
+    <string name="enable_reporting_title">Enable reporting</string>
+    <string name="disable_reporting_persistent">Persistent opt-out</string>
+    <string name="preview_data_title">Preview data</string>
+    <string name="preview_data_summary">%s</string>
+    <string name="view_stats_title">View stats</string>
+    <string name="anonymous_learn_more">Learn more</string>
+
+
+    <string name="pref_stats">Information</string>
+    <string name="last_report_on">Last reported</string>
+    <string name="reporting_interval">Reporting interval</string>
+    <plurals name="reporting_interval_days">
+        <item quantity="one">1 day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+    <string name="next_report_on">Next report</string>
+    <string name="app_signature">App signature</string>
+
+    <string name="pref_hideicon">Hide icon from launcher</string>
+    <string name="pref_hideicon_desc">Application launcher icon will be hidden from your App Drawer</string>
+
+    <string name="pref_uninstall">Uninstall</string>
+    <string name="btn_yes">Yes</string>
+    <string name="btn_no">No</string>
+
+    <!-- Anonymous Statistics - Preview -->
+    <string name="preview_id_title">Unique ID</string>
+    <string name="preview_device_title">Device</string>
+    <string name="preview_version_title">Version</string>
+    <string name="preview_country_title">Country</string>
+    <string name="preview_carrier_title">Carrier</string>
+    <string name="preview_romname_title">ROM Name</string>
+    <string name="preview_romversion_title">ROM Version</string>
+
+    <string name="pref_info">About &amp; Support</string>
+    <string name="pref_info_about">About</string>
+    <string name="pref_info_changelog">Change log</string>
+    <string name="pref_info_changelog_desc">Show the change log</string>
+    <string name="pref_info_website">Decker\'s Blog</string>
+    <string name="pref_info_website_url">http://www.decker.su</string>
+
+</resources>
