@@ -1553,7 +1553,11 @@ service fp /system/bin/fpserver
 #sunwave fingerprint
 
 #goodix finger (begin)
-chmod 0660 /dev/goodix_fp
+chmod 0666 /dev/madev0
+chown system system /dev/madev0
+chmod 0666 /dev/esfp0
+chown system system /dev/esfp0
+chmod 0666 /dev/goodix_fp
 chown system system /dev/goodix_fp
 
 service fingerprintd /system/bin/fingerprintd
