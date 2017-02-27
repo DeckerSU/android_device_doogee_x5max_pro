@@ -196,6 +196,9 @@ on post-fs-data
     chmod 666 /dev/mali0
     #chown system graphics /dev/mali
 
+    # Smart PA
+    chmod 777 /dev/i2c_smartpa
+
     # Touch Panel
     # chmod 0664 /dev/touch
     chown root diag /sys/module/tpd_setting/parameters/tpd_calmat
@@ -210,6 +213,18 @@ on post-fs-data
     chown root diag /sys/module/tpd_setting/parameters/tpd_em_asamp
     chown root diag /sys/module/tpd_debug/parameters/tpd_em_log
     chown root diag /sys/module/tpd_debug/parameters/tpd_em_log_to_fs
+
+    # Vanzo:tanglei on: Fri, 11 Mar 2016 21:55:41 +0800
+    chmod 0664 /sys/devices/bus/11008000.i2c/i2c-1/1-005d/gesture
+    chmod 0664 /sys/devices/bus/11008000.i2c/i2c-1/1-0038/gesture
+    chown system system /sys/devices/bus/11008000.i2c/i2c-1/1-005d/gesture
+    chown system system /sys/devices/bus/11008000.i2c/i2c-1/1-0038/gesture
+    chown system system /sys/devices/bus/bus:touch@/tpd_switch_vkey
+
+    chmod 0664 /sys/devices/platform/leds-mt65xx/leds/red/brightness
+    chmod 0664 /sys/devices/platform/leds-mt65xx/leds/green/brightness
+    chmod 0664 /sys/devices/platform/leds-mt65xx/leds/blue/brightness
+    # End of Vanzo:tanglei
 
     chmod 0666 /dev/pmem_multimedia
 
@@ -263,6 +278,10 @@ on post-fs-data
     chown system system /dev/gyroscope
     chown system system /dev/aal_als
 
+    chmod 0664 /dev/isdbt
+    chown system system /dev/isdbt
+
+    chmod 0777 /system/bin/memsicp
     chmod 0660 /sys/class/misc/m_acc_misc/accenablenodata
     chmod 0660 /sys/class/misc/m_acc_misc/accactive
     chmod 0660 /sys/class/misc/m_acc_misc/accdelay
@@ -273,6 +292,7 @@ on post-fs-data
     chown system system /sys/class/misc/m_acc_misc/accdelay
     chown system system /sys/class/misc/m_acc_misc/accbatch
     chown system system /sys/class/misc/m_acc_misc/accflush
+    chown system system /system/bin/memsicp
 
     chmod 0660 /sys/class/misc/m_mag_misc/magactive
     chmod 0660 /sys/class/misc/m_mag_misc/magdelay
@@ -575,6 +595,11 @@ on post-fs-data
     #MATV
     chmod 0660 /dev/MATV
     chown system media /dev/MATV
+
+    # Vanzo:yuntaohe on: Fri, 15 Apr 2016 16:49:45 +0800
+    # TODO: for fc8300 dtv
+    chmod 0664 /dev/isdbt
+    # End of Vanzo:yuntaohe
 
     # otg_test
     chown root radio /dev/mt_otg_test
@@ -1283,26 +1308,11 @@ service memsicd3416x /system/bin/memsicd3416x
 	 user system
     group system
     class main
-#dixiaobing@wind-mobi.com 20150710 start     
-service memsicd3524x /system/bin/memsicd3524x
-     disabled
-	 user system
-    group system
-    class main
-     
-service ist8303 /system/bin/ist8303
-    disabled
-    user system
-    group system
-    class main
-#dixiaobing@wind-mobi.com 20150710 end 
-
 service akmd8975 /system/bin/akmd8975
     disabled
     user system
     group system
     class main
-
 
 service akmd8963 /system/bin/akmd8963
     disabled
@@ -1315,6 +1325,14 @@ service akmd09911 /system/bin/akmd09911
     user system
     group system
     class main
+
+service qmc6983d /system/bin/qmc6983d
+    disabled
+    user system
+    group system
+    class main 
+    oneshot
+
 service bmm050d /system/bin/bmm050d
     disabled
     user system
@@ -1336,14 +1354,7 @@ service qmc5983d /system/bin/qmc5983d
 	 user system
     group system
     class main
-    # yudengwu@wind-mobi.com begin
-service qmcX983d /system/bin/qmcX983d
-     disabled
-	 user system
-    group system
-    class main
-	oneshot
-    # yudengwu@wind-mobi.com end
+
 service orientationd /system/bin/orientationd
     disabled
     user system
@@ -1535,6 +1546,26 @@ service ril-3gddaemon /system/bin/rild_dongle
 #
 #ril-daemon (end)
 #
+#sunwave fingerprint
+service fp /system/bin/fpserver
+    class main
+    user root
+#sunwave fingerprint
+
+#goodix finger (begin)
+chmod 0660 /dev/goodix_fp
+chown system system /dev/goodix_fp
+
+service fingerprintd /system/bin/fingerprintd
+class late_start
+user system
+
+service gx_fpd /system/bin/gx_fpd
+class late_start
+user root
+group root system
+
+#goodix finger (end)
 
 #
 #usbdongled(begin)

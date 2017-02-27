@@ -123,3 +123,8 @@
 /data/.tp(/.*)?                                                 u:object_r:thermal_manager_data_file:s0
 
 /sys/devices/virtual/meizu/ps/ps_calibration                    u:object_r:meizu_ps_calibration_trigger:s0
+
+#sunwave fingerprint
+/dev/sunwave_fp        u:object_r:sunwave_device:s0
+/system/bin/fpserver  u:object_r:fpserver_exec:s0
+#sunwave fingerprint

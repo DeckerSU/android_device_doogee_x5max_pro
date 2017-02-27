@@ -1,1 +1,20 @@
 PQ  u:object_r:pq_service:s0
+# Vanzo:hanshengpeng on: Mon, 18 Jan 2016 11:39:44 +0800
+# DTV
+com.wrg.JellyService                      u:object_r:dtv_service:s0
+# End of Vanzo:hanshengpeng
+data_shaping        u:object_r:mtk_data_shaping_service:s0
+multiwindow     u:object_r:mtk_multiwindow_service:s0
+mw_blacklist   u:object_r:mtk_mwblacklist_service:s0
+# Vanzo:qingzhan on:  2016 2/26
+# added for goodix fp
+goodix.fp                                 u:object_r:gx_fpd_service:s0
+# End of Vanzo: qingzhan
+# Vanzo:zhangxinyu on:  2016 8/5
+#sunwave fingerprint
+media.fp         u:object_r:fpserver_service:s0
+#fingerManager         u:object_r:system_server_service:s0
+fingerManager         u:object_r:fpserver_service:s0
+#sunwave fingerprint
+# End of Vanzo: zhangxinyu
+
