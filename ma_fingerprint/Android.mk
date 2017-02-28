@@ -14,14 +14,13 @@
 
 LOCAL_PATH := $(call my-dir)
 
-
-include $(CLEAR_VARS)
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE = libfprint-x64
-LOCAL_MODULE_CLASS = SHARED_LIBRARIES
-LOCAL_SRC_FILES_64 = libfprint-x64.so
-LOCAL_MODULE_PATH := $(TARGET_OUT)/lib64
-include $(BUILD_PREBUILT)
+#include $(CLEAR_VARS)
+#LOCAL_MODULE_TAGS := optional
+#LOCAL_MODULE = libfprint-x64
+#LOCAL_MODULE_CLASS = SHARED_LIBRARIES
+#LOCAL_SRC_FILES_64 = libfprint-x64.so
+#LOCAL_MODULE_PATH := $(TARGET_OUT)/lib64
+#include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
 LOCAL_CFLAGS := -Wno-error -Wno-implicit-function-declaration 
