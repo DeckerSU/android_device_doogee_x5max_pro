@@ -23,3 +23,6 @@ cd ../..
 cd system/netd
 git apply -v --check ../../device/doogee/x5max_pro/patches_decker/0010-wifi-tethering-fix.patch
 cd ../..
+cd packages/apps/FMRadio/jni/fmr/ 
+git apply -v --check ../../../../../device/doogee/x5max_pro/patches_decker/0014-fix-fm-radio-power-up-mt6737m-mt6627-chip.patch
+cd ../../../../..
