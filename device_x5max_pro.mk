@@ -227,8 +227,8 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 ## Statistics
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.romstats.name=LineageOS \
-  ro.romstats.version=14.0_64_bit \
+  ro.romstats.name=ResurrectionRemix \
+  ro.romstats.version=5.8.2_64_bit \
   ro.romstats.tframe=7 
 PRODUCT_PACKAGES += \
 	RomStats

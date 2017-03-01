@@ -1,0 +1,53 @@
+From 8c41f5e598d5dcd87285a6a15f22d10e29b0d249 Mon Sep 17 00:00:00 2001
+From: DeckerSU <support@decker.su>
+Date: Wed, 1 Mar 2017 21:16:11 +0300
+Subject: [PATCH] disable ResurrectionStats building
+
+---
+ config/common.mk | 18 ++++++++++++------
+ 1 file changed, 12 insertions(+), 6 deletions(-)
+
+diff --git a/config/common.mk b/config/common.mk
+index 22f0e0b..92489e7 100644
+--- a/config/common.mk
++++ b/config/common.mk
+@@ -176,7 +176,6 @@ PRODUCT_PACKAGES += \
+ # Custom CM packages
+ PRODUCT_PACKAGES += \
+     ResurrectionOTA \
+-    ResurrectionStats \
+     Trebuchet \
+     MusicFX \
+     CMFileManager \
+@@ -297,16 +296,23 @@ else
+ RR_VERSION := RR-N-v$(PRODUCT_VERSION)-$(shell date -u +%Y%m%d)-$(CM_BUILD)
+ endif
+ 
++#PRODUCT_PROPERTY_OVERRIDES += \
++# ro.rr.version=$(RR_VERSION) \
++# ro.modversion=$(RR_VERSION) \
++# rr.build.type=$(RR_BUILDTYPE) \
++# Default \
++# rr.ota.version= $(shell date -u +%Y%m%d) \
++# ro.romstats.url=http://resurrectionremix.sourceforge.net/ \
++# ro.romstats.name=ResurrectionRemix \
++# ro.romstats.version=$(PRODUCT_VERSION) \
++# ro.romstats.tframe=7
++
+ PRODUCT_PROPERTY_OVERRIDES += \
+  ro.rr.version=$(RR_VERSION) \
+  ro.modversion=$(RR_VERSION) \
+  rr.build.type=$(RR_BUILDTYPE) \
+  Default \
+- rr.ota.version= $(shell date -u +%Y%m%d) \
+- ro.romstats.url=http://resurrectionremix.sourceforge.net/ \
+- ro.romstats.name=ResurrectionRemix \
+- ro.romstats.version=$(PRODUCT_VERSION) \
+- ro.romstats.tframe=7
++ rr.ota.version= $(shell date -u +%Y%m%d)
+ 
+ CM_DISPLAY_VERSION := $(RR_VERSION)
+ 
+-- 
+2.7.4
+
