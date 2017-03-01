@@ -214,7 +214,7 @@ $(shell touch $(OUT)/obj/KERNEL_OBJ/usr/export_includes)
 $(call inherit-product, build/target/product/full.mk)
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := full_x5max_pro
+PRODUCT_NAME := mk_x5max_pro
 PRODUCT_DEVICE := x5max_pro
 PRODUCT_LOCALES := en_US en_GB ru_RU uk_UA
 
@@ -227,8 +227,8 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 ## Statistics
 PRODUCT_PROPERTY_OVERRIDES += \
-  ro.romstats.name=LineageOS \
-  ro.romstats.version=14.0_64_bit \
+  ro.romstats.name=Mokee \
+  ro.romstats.version=7.1.1_64_bit \
   ro.romstats.tframe=7 
 PRODUCT_PACKAGES += \
 	RomStats
